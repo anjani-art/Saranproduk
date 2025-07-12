@@ -3,192 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MemoEcoKu</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Go Green & Financial Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#A3D8F4"> </head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4CAF50">
+</head>
 <body>
-    <div id="app-container">
-        <header>
-            <button id="menu-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
-            <h1>MemoEcoKu</h1>
-        </header>
+    <header>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Buka Menu Samping">
+            <i class="fas fa-bars"></i>
+        </button>
+        <h1>Go Green Hub</h1>
+    </header>
 
-        <nav id="side-menu">
-            <button id="close-menu" aria-label="Close menu"><i class="fas fa-times"></i></button>
+    <aside id="side-menu" class="side-menu">
+        <button id="close-menu" class="close-menu" aria-label="Tutup Menu Samping">
+            <i class="fas fa-times"></i>
+        </button>
+        <nav>
             <ul>
                 <li><a href="#" data-page="home"><i class="fas fa-home"></i> Beranda</a></li>
                 <li><a href="#" data-page="notes"><i class="fas fa-sticky-note"></i> Catatan & Pengingat</a></li>
-                <li><a href="#" data-page="finance"><i class="fas fa-chart-line"></i> Keuangan Berkelanjutan</a></li>
+                <li><a href="#" data-page="finance"><i class="fas fa-wallet"></i> Keuangan Berkelanjutan</a></li>
                 <li><a href="#" data-page="products"><i class="fas fa-leaf"></i> Saran Produk Go Green</a></li>
-                <li><a href="#" data-page="info"><i class="fas fa-info-circle"></i> Info Aplikasi</a></li>
-                </ul>
+                <li><a href="#" data-page="about"><i class="fas fa-info-circle"></i> Tentang Aplikasi</a></li>
+            </ul>
         </nav>
+    </aside>
 
-        <main>
-            <section id="home-page" class="page active">
-                <div class="page-header">
-                    <h2>Beranda</h2>
-                </div>
-                <p id="welcome-message">Selamat datang di MemoEcoKu!</p>
+    <main class="content">
+        <section id="home-page" class="page active">
+            <div class="page-header">
+                <h2>Selamat Datang!</h2>
                 <div id="quote-display" class="quote-card">
-                    <p class="quote-text"></p>
+                    <p class="quote-text">"Loading quote..."</p>
                     <p class="quote-author"></p>
                 </div>
+            </div>
 
-                <div class="card-grid">
-                    <div class="card" data-page="notes">
-                        <i class="fas fa-sticky-note"></i>
-                        <h3>Catatan & Pengingat</h3>
-                    </div>
-                    <div class="card" data-page="finance">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Keuangan Berkelanjutan</h3>
-                    </div>
-                    <div class="card" data-page="products">
-                        <i class="fas fa-leaf"></i>
-                        <h3>Saran Produk Go Green</h3>
-                    </div>
+            <div class="card-grid">
+                <div class="card" data-page="notes">
+                    <i class="fas fa-sticky-note"></i>
+                    <h3>Catatan & Pengingat</h3>
+                    <p>Catat ide dan hal penting lainnya.</p>
                 </div>
-            </section>
+                <div class="card" data-page="finance">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Keuangan Berkelanjutan</h3>
+                    <p>Catat pemasukan dan pengeluaran Anda.</p>
+                </div>
+                <div class="card" data-page="products">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Saran Produk Go Green</h3>
+                    <p>Temukan produk ramah lingkungan pilihan.</p>
+                </div>
+                <div class="card" data-page="about">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>Tentang Aplikasi</h3>
+                    <p>Informasi aplikasi.</p>
+                </div>
+            </div>
+        </section>
 
-            <section id="notes-page" class="page">
-                <div class="page-header">
-                    <button class="back-button" data-target="home"><i class="fas fa-arrow-left"></i></button>
-                    <h2>Catatan & Pengingat</h2>
-                </div>
+        <section id="notes-page" class="page">
+            <div class="page-header">
+                <button class="back-button" data-target="home" aria-label="Kembali ke Beranda"><i class="fas fa-arrow-left"></i></button>
+                <h2>Catatan & Pengingat</h2>
+            </div>
+            <div class="input-section">
+                <textarea id="note-text" placeholder="Tulis catatan Anda di sini..."></textarea>
+                <button id="add-note-button" class="primary-button"><i class="fas fa-plus"></i> Tambah Catatan</button>
+            </div>
 
-                <div class="add-note-section">
-                    <h3>Tambahkan Catatan Baru</h3>
-                    <div class="note-input-group">
-                        <textarea id="note-text" placeholder="Tulis catatan Anda di sini..."></textarea>
-                        <button id="add-note-button"><i class="fas fa-plus"></i></button>
+            <div class="notes-container">
+                <h3>Catatan Penting <i class="fas fa-thumbtack"></i></h3>
+                <div id="pinned-notes-container" class="notes-grid">
                     </div>
-                </div>
+                <p id="empty-pinned-notes-message" class="empty-message">Belum ada catatan yang disematkan.</p>
 
-                <div class="note-list-container">
-                    <div class="section-header">
-                        <h3>Catatan Penting</h3>
+                <h3>Catatan Lainnya</h3>
+                <div id="other-notes-container" class="notes-grid">
                     </div>
-                    <div id="pinned-notes-container">
-                        <p id="empty-pinned-notes-message" class="empty-message">Belum ada catatan yang disematkan.</p>
-                    </div>
+                <p id="empty-other-notes-message" class="empty-message">Belum ada catatan lainnya.</p>
+            </div>
+        </section>
 
-                    <div class="section-header" style="margin-top: 30px;">
-                        <h3>Catatan Lainnya</h3>
-                    </div>
-                    <div id="other-notes-container">
-                        <p id="empty-other-notes-message" class="empty-message">Belum ada catatan lainnya.</p>
-                    </div>
+        <section id="finance-page" class="page">
+            <div class="page-header">
+                <button class="back-button" data-target="home" aria-label="Kembali ke Beranda"><i class="fas fa-arrow-left"></i></button>
+                <h2>Keuangan Berkelanjutan</h2>
+            </div>
+            <div class="summary-section card">
+                <div class="summary-item">
+                    <span>Total Pemasukan:</span>
+                    <span id="total-income" class="income-value">Rp 0</span>
                 </div>
-            </section>
+                <div class="summary-item">
+                    <span>Total Pengeluaran:</span>
+                    <span id="total-expense" class="expense-value">Rp 0</span>
+                </div>
+                <div class="summary-item total-balance">
+                    <span>Saldo Saat Ini:</span>
+                    <span id="current-balance" class="balance-value">Rp 0</span>
+                </div>
+            </div>
 
-            <section id="finance-page" class="page">
-                <div class="page-header">
-                    <button class="back-button" data-target="home"><i class="fas fa-arrow-left"></i></button>
-                    <h2>Keuangan Berkelanjutan</h2>
-                </div>
+            <div class="input-section">
+                <input type="text" id="transaction-description" placeholder="Deskripsi transaksi">
+                <input type="number" id="transaction-amount" placeholder="Jumlah (Rp)" min="0">
+                <select id="transaction-type">
+                    <option value="income">Pemasukan</option>
+                    <option value="expense">Pengeluaran</option>
+                </select>
+                <button id="add-transaction-button" class="primary-button"><i class="fas fa-plus"></i> Tambah Transaksi</button>
+            </div>
 
-                <div class="summary-cards">
-                    <div class="summary-card income">
-                        <h4>Total Pemasukan</h4>
-                        <p id="total-income">Rp 0</p>
-                    </div>
-                    <div class="summary-card expense">
-                        <h4>Total Pengeluaran</h4>
-                        <p id="total-expense">Rp 0</p>
-                    </div>
-                    <div class="summary-card balance">
-                        <h4>Saldo Saat Ini</h4>
-                        <p id="current-balance">Rp 0</p>
-                    </div>
-                </div>
-
-                <div class="add-transaction-section">
-                    <h3>Tambahkan Transaksi Baru</h3>
-                    <div class="form-group">
-                        <label for="transaction-description">Deskripsi:</label>
-                        <input type="text" id="transaction-description" placeholder="Contoh: Beli Kopi">
-                    </div>
-                    <div class="form-group">
-                        <label for="transaction-amount">Jumlah:</label>
-                        <input type="number" id="transaction-amount" placeholder="50000">
-                    </div>
-                    <div class="form-group">
-                        <label for="transaction-type">Jenis:</label>
-                        <select id="transaction-type">
-                            <option value="income">Pemasukan</option>
-                            <option value="expense">Pengeluaran</option>
-                        </select>
-                    </div>
-                    <button id="add-transaction-button" class="button-primary">Tambah Transaksi</button>
-                </div>
-
-                <div class="transaction-list-section">
-                    <h3>Riwayat Transaksi</h3>
-                    <ul id="transaction-list">
-                        </ul>
-                </div>
-            </section>
-
-            <section id="products-page" class="page">
-                <div class="page-header">
-                    <button class="back-button" data-target="home"><i class="fas fa-arrow-left"></i></button>
-                    <h2>Saran Produk Go Green</h2>
-                </div>
-                <p>Jelajahi berbagai kategori produk ramah lingkungan.</p>
-                <div class="form-group search-bar">
-                    <input type="text" id="product-search-input" placeholder="Cari produk...">
-                    <button id="product-search-button"><i class="fas fa-search"></i></button>
-                </div>
-                <div id="product-categories-grid" class="category-grid">
-                </div>
-            </section>
-
-            <section id="product-list-page" class="page">
-                <div class="page-header">
-                    <button class="back-button" data-target="products"><i class="fas fa-arrow-left"></i></button>
-                    <h2 id="product-list-category-title"></h2>
-                </div>
-                <div id="product-list-container" class="product-list">
-                </div>
-            </section>
-
-            <section id="product-detail-page" class="page">
-                <div class="page-header">
-                    <button class="back-button" data-target="product-list"><i class="fas fa-arrow-left"></i></button>
-                    <h2>Detail Produk</h2>
-                </div>
-                <div id="product-detail-content" class="product-detail">
-                </div>
-            </section>
-
-            <section id="info-page" class="page">
-                <div class="page-header">
-                    <button class="back-button" data-target="home"><i class="fas fa-arrow-left"></i></button>
-                    <h2>Info Aplikasi</h2>
-                </div>
-                <div class="info-content">
-                    <h3>Tentang Eco-MemoKu</h3>
-                    <p>MemoEcoKu adalah aplikasi yang dirancang untuk membantu Anda mengelola gaya hidup berkelanjutan dengan lebih mudah. Fitur-fitur kami meliputi:</p>
-                    <ul>
-                        <li><strong>Catatan & Pengingat:</strong> Kelola tugas dan ide terkait keberlanjutan Anda.</li>
-                        <li><strong>Keuangan Berkelanjutan:</strong> Lacak pemasukan dan pengeluaran Anda untuk melihat dampak finansial dari pilihan ramah lingkungan.</li>
-                        <li><strong>Saran Produk Go Green:</strong> Temukan produk ramah lingkungan yang direkomendasikan untuk berbagai kategori.</li>
+            <div class="transactions-section">
+                <h3>Daftar Transaksi</h3>
+                <ul id="transaction-list">
                     </ul>
-                    <p>Kami berharap MemoEcoKu dapat menjadi teman setia Anda dalam perjalanan menuju kehidupan yang lebih hijau dan bertanggung jawab.</p>
-                    
-                    <h3>Tim Pengembang</h3>
-                    <p>Aplikasi ini dikembangkan dengan semangat untuk keberlanjutan dan inovasi.</p>
-                    
-                    <h3>Hubungi Kami</h3>
-                    <p>Jika Anda memiliki pertanyaan atau masukan, jangan ragu untuk menghubungi kami di <a href="mailto:info@memoecoku.com">info@memoecoku.com</a>.</p>
-                </div>
-            </section>
+            </div>
+        </section>
 
-        </main>
-    </div>
+        <section id="products-page" class="page">
+            <div class="page-header">
+                <button class="back-button" data-target="home" aria-label="Kembali ke Beranda"><i class="fas fa-arrow-left"></i></button>
+                <h2>Saran Produk Go Green</h2>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" id="product-search-input" placeholder="Cari produk...">
+                <button id="product-search-button" class="primary-button search-button" aria-label="Cari Produk"><i class="fas fa-search"></i></button>
+            </div>
+
+            <h3>Kategori Produk</h3>
+            <div id="product-categories-grid" class="category-grid">
+                </div>
+        </section>
+
+        <section id="product-list-page" class="page">
+            <div class="page-header">
+                <button class="back-button" data-target="products" aria-label="Kembali ke Kategori Produk"><i class="fas fa-arrow-left"></i></button>
+                <h2 id="product-list-category-title">Produk Kategori: [Nama Kategori]</h2>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="product-list-search-input" placeholder="Cari di kategori ini...">
+                <button id="product-list-search-button" class="primary-button search-button" aria-label="Cari di Kategori"><i class="fas fa-search"></i></button>
+            </div>
+            <div id="product-list-container" class="product-list-grid">
+                </div>
+        </section>
+
+        <section id="product-detail-page" class="page">
+            <div class="page-header">
+                <button class="back-button" data-target="product-list" aria-label="Kembali ke Daftar Produk"><i class="fas fa-arrow-left"></i></button>
+                <h2>Detail Produk</h2>
+            </div>
+            <div id="product-detail-content" class="product-detail-card">
+                </div>
+        </section>
+
+        <section id="about-page" class="page">
+            <div class="page-header">
+                <button class="back-button" data-target="home" aria-label="Kembali ke Beranda"><i class="fas fa-arrow-left"></i></button>
+                <h2>Tentang Aplikasi</h2>
+            </div>
+            <div class="about-content card">
+                <h3>Go Green Hub</h3>
+                <p>Aplikasi ini dirancang untuk membantu Anda mengelola catatan, melacak keuangan, dan menemukan produk ramah lingkungan untuk gaya hidup yang lebih berkelanjutan.</p>
+                <p>Dikembangkan dengan ❤️ oleh Saskia Bunga Anjani</p>
+                <p>Versi: 1.0.0</p>
+                <h4>Fitur Utama:</h4>
+                <ul>
+                    <li>Manajemen Catatan & Pengingat</li>
+                    <li>Pencatatan Pemasukan & Pengeluaran</li>
+                    <li>Rekomendasi Produk Go Green</li>
+                    <li>Desain Responsif & Fungsionalitas Offline (PWA)</li>
+                </ul>
+                <p class="copyright">&copy; 2025 Go Green Hub. All rights reserved.</p>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
