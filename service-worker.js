@@ -1,12 +1,12 @@
-const CACHE_NAME = 'eco-memo-v1'; // Nama cache diperbarui
+const CACHE_NAME = 'eco-memo-v1';
 const urlsToCache = [
   '/',
   '/index.html',
   '/style.css',
   '/script.js',
   '/manifest.json',
-  '/images/icons/icon-192x192.png',
-  '/images/icons/icon-512x512.png',
+  '/icon-192x192.png', // Path diperbaiki
+  '/icon-512x512.png', // Path diperbaiki
   'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'
 ];
 
